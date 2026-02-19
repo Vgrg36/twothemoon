@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TwoTheMoon Events | Next Level Production</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #050508; --text: #ffffff; --accent: #444; }
+        body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; overflow-x: hidden; }
+        
+        .hero {
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            position: relative; padding: 0 20px;
+        }
+
+        .moon-glow {
+            position: absolute; width: 60vw; height: 60vw;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(5,5,8,0) 70%);
+            border-radius: 50%; z-index: -1;
+        }
+
+        h1 { 
+            font-size: clamp(3rem, 12vw, 9rem); font-weight: 800; 
+            margin: 0; letter-spacing: -2px; line-height: 0.85;
+            text-transform: uppercase;
+        }
+
+        .num { opacity: 0.3; }
+
+        .tagline { 
+            margin-top: 40px; font-size: clamp(1rem, 3vw, 1.5rem); 
+            letter-spacing: 5px; font-weight: 200; text-transform: uppercase; color: #aaa;
+        }
+
+        .legacy {
+            margin-top: 60px; padding: 15px 30px; border: 1px solid var(--accent);
+            font-size: 0.9rem; letter-spacing: 2px; opacity: 0.7;
+        }
+
+        .contact-btn {
+            margin-top: 80px; color: var(--text); text-decoration: none;
+            font-size: 1.1rem; border-bottom: 1px solid #fff; padding-bottom: 5px;
+            transition: 0.3s;
+        }
+        .contact-btn:hover { opacity: 0.6; }
+
+        footer { position: absolute; bottom: 30px; font-size: 0.7rem; opacity: 0.3; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="moon-glow"></div>
+        <h1><span class="num">TWO</span>THE<br>MOON</h1>
+        <div class="tagline">Next Level Event Production</div>
+        
+        <div class="legacy">
+            BORN FROM THE FOUNDATION OF ONE DAY FESTIVAL
+        </div>
+
+        <a href="mailto:iroda@twothemoonevents.hu" class="contact-btn">KAPCSOLATFELVÉTEL</a>
+
+        <footer>
+            &copy; 2026 TWOTHEMOON EVENTS. ALL RIGHTS RESERVED.
+        </footer>
+    </div>
+</body>
+</html>
