@@ -12,47 +12,48 @@
         body { background: var(--bg); color: #fff; line-height: 1.6; }
         .navbar { position: fixed; top: 0; width: 100%; height: 70px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background: #000; border-bottom: 1px solid var(--border); z-index: 1000; }
         .logo { font-family: 'Montserrat'; font-weight: 900; font-size: 1.3rem; text-decoration: none; color: #fff; }
+        .nav-links { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: #050505; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px; transition: 0.4s; border-left: 1px solid var(--border); z-index: 999; list-style: none; }
+        .nav-links.active { right: 0; }
+        .nav-links a { text-decoration: none; color: #fff; font-size: 0.9rem; text-transform: uppercase; font-family: 'Montserrat'; }
+        .hamburger { cursor: pointer; display: flex; flex-direction: column; gap: 6px; z-index: 1001; }
+        .hamburger span { display: block; width: 28px; height: 2px; background: #fff; transition: 0.3s; }
+        .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
         .content { padding: 140px 10% 80px; max-width: 1100px; margin: 0 auto; }
-        .category { color: var(--silver); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; display: block; }
         h1 { font-family: 'Montserrat'; font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; margin-bottom: 30px; line-height: 1; }
-        .lead { font-size: 1.2rem; color: #ccc; margin-bottom: 50px; border-left: 2px solid var(--silver); padding-left: 25px; }
         .service-list { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 60px 0; }
-        .service-item { border-bottom: 1px solid var(--border); padding-bottom: 30px; }
-        .service-item h3 { font-family: 'Montserrat'; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 15px; }
-        .service-item p { color: #888; font-size: 0.95rem; }
-        .cta-section { border: 1px solid var(--border); padding: 50px; text-align: center; }
-        .btn { display: inline-block; background: #fff; color: #000; padding: 18px 45px; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 0.85rem; }
-        .back-link { display: inline-block; margin-bottom: 30px; color: #555; text-decoration: none; text-transform: uppercase; font-size: 0.7rem; }
+        .item { border-bottom: 1px solid var(--border); padding-bottom: 30px; }
+        .item h3 { font-family: 'Montserrat'; text-transform: uppercase; font-size: 1.1rem; margin-bottom: 15px; }
+        .item p { color: #888; font-size: 0.95rem; }
+        .btn { display: inline-block; background: #fff; color: #000; padding: 18px 45px; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 0.85rem; border: 1px solid #fff; transition: 0.3s; }
+        .btn:hover { background: transparent; color: #fff; }
+        @media (max-width: 768px) { .service-list { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-    <nav class="navbar"><a href="index.html" class="logo">TwoTheMoon</a></nav>
+    <nav class="navbar">
+        <a href="index.html" class="logo">TwoTheMoon</a>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Főoldal</a></li>
+            <li><a href="fesztival.html">Fesztiválok</a></li>
+            <li><a href="ceges.html">Üzleti</a></li>
+            <li><a href="privat.html">Privát</a></li>
+            <li><a href="referencia.html">Referencia</a></li>
+            <li><a href="kapcsolat.html">Kapcsolat</a></li>
+        </ul>
+    </nav>
     <div class="content">
-        <a href="index.html" class="back-link">← Vissza</a>
-        <span class="category">Private & VIP</span>
         <h1>Privát <br> Produkciók</h1>
-        <p class="lead">Zártkörű események, ahol a diszkréció és a technikai tökéletesség találkozik. A privát szférában is a fesztiváloknál megszokott precizitással dolgozunk.</p>
+        <p style="font-size: 1.2rem; color: #ccc; margin-bottom: 50px; border-left: 2px solid var(--silver); padding-left: 25px;">Személyre szabott események, ahol a diszkréció és a minőség nem kérdés.</p>
         <div class="service-list">
-            <div class="service-item">
-                <h3>Esküvők modern köntösben</h3>
-                <p>Hagyományok, de professzionális stábbal. Épített látványvilág, egyedi fénytechnika és prémium hangosítás.</p>
-            </div>
-            <div class="service-item">
-                <h3>VIP Jubileumok</h3>
-                <p>Születésnapok és évfordulók teljes körű menedzselése a helyszín biztosításától a fellépők koordinálásáig.</p>
-            </div>
-            <div class="service-item">
-                <h3>Eszközpark és Design</h3>
-                <p>Saját bútorzat, egyedi bárpultok és technikai eszközök, amelyek illeszkednek az esemény esztétikájához.</p>
-            </div>
-            <div class="service-item">
-                <h3>Catering & Hospitality</h3>
-                <p>Válogatott gasztronómiai partnerek és professzionális kiszolgáló személyzet irányítása.</p>
-            </div>
+            <div class="item"><h3>Esküvők</h3><p>Modern látványvilág és kifogástalan technikai háttér.</p></div>
+            <div class="item"><h3>Jubileumok</h3><p>VIP partik koordinálása a helyszíntől a fellépőkig.</p></div>
+            <div class="item"><h3>Eszközbérlés</h3><p>Saját prémium bútorzat és technikai berendezések.</p></div>
+            <div class="item"><h3>Vendéglátás</h3><p>Válogatott catering partnerek és profi stáb irányítása.</p></div>
         </div>
-        <div class="cta-section">
-            <a href="kapcsolat.html" class="btn">Egyedi egyeztetés</a>
-        </div>
+        <a href="kapcsolat.html" class="btn">Egyedi Brief Küldése</a>
     </div>
+    <script>function toggleMenu(){document.getElementById('navLinks').classList.toggle('active');document.querySelector('.hamburger').classList.toggle('open');}</script>
 </body>
 </html>
