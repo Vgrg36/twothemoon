@@ -3,37 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TwoTheMoon | Produkciós Iroda</title>
-    <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <title>TwoTheMoon | Event Production House</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <style>
         :root { --bg: #000; --silver: #C0C0C0; --border: rgba(255,255,255,0.1); }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background: var(--bg); color: #fff; overflow: hidden; }
 
-        /* NAVIGÁCIÓ */
-        .navbar { position: fixed; top: 0; width: 100%; height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background: rgba(0,0,0,0.9); border-bottom: 1px solid var(--border); z-index: 1000; }
-        .logo { font-family: 'Montserrat'; font-weight: 900; font-size: 1.5rem; text-decoration: none; color: #fff; letter-spacing: 2px; }
+        .navbar { position: fixed; top: 0; width: 100%; height: 90px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background: rgba(0,0,0,0.9); border-bottom: 1px solid var(--border); z-index: 1000; }
+        .logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
+        .logo .main { font-family: 'Montserrat'; font-weight: 900; font-size: 1.6rem; letter-spacing: 1px; }
+        .logo .sub { font-family: 'Montserrat'; font-size: 0.6rem; letter-spacing: 4px; color: var(--silver); margin-top: 4px; font-weight: 400; }
         
-        .nav-links { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: #050505; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px; transition: 0.4s; border-left: 1px solid var(--border); z-index: 999; list-style: none; }
+        .nav-links { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: #050505; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px; transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1); border-left: 1px solid var(--border); z-index: 999; list-style: none; }
         .nav-links.active { right: 0; }
-        .nav-links a { text-decoration: none; color: #fff; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; font-family: 'Montserrat'; }
+        .nav-links a { text-decoration: none; color: #fff; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; font-family: 'Montserrat'; transition: 0.3s; }
+        .nav-links a:hover { color: var(--silver); }
 
-        .hamburger { cursor: pointer; display: flex; flex-direction: column; gap: 6px; z-index: 1001; }
-        .hamburger span { display: block; width: 28px; height: 2px; background: #fff; transition: 0.3s; }
+        .hamburger { cursor: pointer; display: flex; flex-direction: column; gap: 7px; z-index: 1001; padding: 10px; }
+        .hamburger span { display: block; width: 25px; height: 1px; background: #fff; transition: 0.3s; }
         .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
         .hamburger.open span:nth-child(2) { opacity: 0; }
         .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-        /* HERO */
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at center, #111 0%, #000 100%); }
         h1 { font-family: 'Montserrat'; font-size: clamp(3.5rem, 12vw, 8rem); text-transform: uppercase; line-height: 0.8; margin-bottom: 20px; letter-spacing: -2px; }
-        .hero p { letter-spacing: 8px; color: var(--silver); text-transform: uppercase; font-size: 0.8rem; font-weight: 300; }
+        .hero p { letter-spacing: 10px; color: var(--silver); text-transform: uppercase; font-size: 0.7rem; font-weight: 200; }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <a href="index.html" class="logo">TwoTheMoon</a>
+        <a href="index.html" class="logo">
+            <div class="main"><span style="color: #fff;">Two</span><span style="color: var(--silver);">TheMoon</span></div>
+            <div class="sub">PRODUCTION HOUSE</div>
+        </a>
         <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Főoldal</a></li>
@@ -46,7 +49,7 @@
     </nav>
     <div class="hero">
         <h1>Two The <br> Moon</h1>
-        <p>Event Production House</p>
+        <p>Premium Event Engineering</p>
     </div>
     <script>
         function toggleMenu() {
