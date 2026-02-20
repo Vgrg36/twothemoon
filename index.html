@@ -9,37 +9,50 @@
     <style>
         :root { --bg: #000; --silver: #C0C0C0; --border: rgba(255,255,255,0.1); }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--bg); color: #fff; overflow-x: hidden; }
+        body { background: var(--bg); color: #fff; overflow: hidden; }
+
+        /* NAVIGÁCIÓ */
         .navbar { position: fixed; top: 0; width: 100%; height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background: rgba(0,0,0,0.9); border-bottom: 1px solid var(--border); z-index: 1000; }
         .logo { font-family: 'Montserrat'; font-weight: 900; font-size: 1.5rem; text-decoration: none; color: #fff; letter-spacing: 2px; }
-        .nav-links { display: flex; list-style: none; gap: 30px; }
-        .nav-links a { text-decoration: none; color: var(--silver); font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        h1 { font-family: 'Montserrat'; font-size: clamp(3rem, 10vw, 7rem); text-transform: uppercase; line-height: 0.8; margin-bottom: 20px; }
-        .services-nav { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; min-height: 300px; border-top: 1px solid var(--border); }
-        .s-link { border-right: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-decoration: none; color: #fff; transition: 0.4s; padding: 40px; }
-        .s-link:hover { background: #fff; color: #000; }
-        .s-link h3 { font-family: 'Montserrat'; text-transform: uppercase; font-size: 1.5rem; }
-        @media (max-width: 768px) { .nav-links { display: none; } .services-nav { grid-template-columns: 1fr; } .s-link { border-right: none; border-bottom: 1px solid var(--border); } }
+        
+        .nav-links { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: #050505; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px; transition: 0.4s; border-left: 1px solid var(--border); z-index: 999; list-style: none; }
+        .nav-links.active { right: 0; }
+        .nav-links a { text-decoration: none; color: #fff; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; font-family: 'Montserrat'; }
+
+        .hamburger { cursor: pointer; display: flex; flex-direction: column; gap: 6px; z-index: 1001; }
+        .hamburger span { display: block; width: 28px; height: 2px; background: #fff; transition: 0.3s; }
+        .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* HERO */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at center, #111 0%, #000 100%); }
+        h1 { font-family: 'Montserrat'; font-size: clamp(3.5rem, 12vw, 8rem); text-transform: uppercase; line-height: 0.8; margin-bottom: 20px; letter-spacing: -2px; }
+        .hero p { letter-spacing: 8px; color: var(--silver); text-transform: uppercase; font-size: 0.8rem; font-weight: 300; }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <a href="index.html" class="logo">TwoTheMoon</a>
-        <ul class="nav-links">
-            <li><a href="rolunk.html">Rólunk</a></li>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Főoldal</a></li>
+            <li><a href="fesztival.html">Fesztiválok</a></li>
+            <li><a href="ceges.html">Üzleti</a></li>
+            <li><a href="privat.html">Privát</a></li>
             <li><a href="referencia.html">Referencia</a></li>
             <li><a href="kapcsolat.html">Kapcsolat</a></li>
         </ul>
     </nav>
     <div class="hero">
         <h1>Two The <br> Moon</h1>
-        <p style="letter-spacing: 5px; color: var(--silver); text-transform: uppercase;">Event Production House</p>
+        <p>Event Production House</p>
     </div>
-    <div class="services-nav">
-        <a href="fesztival.html" class="s-link"><h3>Fesztiválok</h3><span>01</span></a>
-        <a href="ceges.html" class="s-link"><h3>Üzleti</h3><span>02</span></a>
-        <a href="privat.html" class="s-link"><h3>Privát</h3><span>03</span></a>
-    </div>
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+            document.querySelector('.hamburger').classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
