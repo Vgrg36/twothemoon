@@ -12,56 +12,52 @@
         body { background: var(--bg); color: #fff; line-height: 1.6; }
         .navbar { position: fixed; top: 0; width: 100%; height: 70px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background: #000; border-bottom: 1px solid var(--border); z-index: 1000; }
         .logo { font-family: 'Montserrat'; font-weight: 900; font-size: 1.3rem; text-decoration: none; color: #fff; }
+        .nav-links { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: #050505; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px; transition: 0.4s; border-left: 1px solid var(--border); z-index: 999; list-style: none; }
+        .nav-links.active { right: 0; }
+        .nav-links a { text-decoration: none; color: #fff; font-size: 0.9rem; text-transform: uppercase; font-family: 'Montserrat'; }
+        .hamburger { cursor: pointer; display: flex; flex-direction: column; gap: 6px; z-index: 1001; }
+        .hamburger span { display: block; width: 28px; height: 2px; background: #fff; transition: 0.3s; }
+        .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
         .content { padding: 140px 10% 80px; max-width: 1100px; margin: 0 auto; }
         h1 { font-family: 'Montserrat'; font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; margin-bottom: 60px; }
-        .ref-item { border: 1px solid var(--border); padding: 60px; margin-bottom: 40px; display: flex; justify-content: space-between; align-items: center; }
-        .ref-info h2 { font-family: 'Montserrat'; text-transform: uppercase; font-size: 2rem; margin-bottom: 10px; }
-        .ref-info p { color: #888; max-width: 500px; }
-        .stats { text-align: right; }
-        .stats span { display: block; font-family: 'Montserrat'; font-size: 3rem; font-weight: 900; line-height: 1; }
-        .stats label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--silver); }
-        .back-link { display: inline-block; margin-bottom: 30px; color: #555; text-decoration: none; text-transform: uppercase; font-size: 0.7rem; }
-        @media (max-width: 768px) { .ref-item { flex-direction: column; text-align: center; gap: 30px; } .stats { text-align: center; } }
+        .ref-item { border: 1px solid var(--border); padding: 50px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
+        .info h2 { font-family: 'Montserrat'; text-transform: uppercase; font-size: 1.8rem; margin-bottom: 10px; }
+        .info p { color: #888; max-width: 450px; }
+        .stat { text-align: right; }
+        .stat span { display: block; font-family: 'Montserrat'; font-size: 3rem; font-weight: 900; line-height: 1; color: #fff; }
+        .stat label { font-size: 0.7rem; text-transform: uppercase; color: var(--silver); letter-spacing: 2px; }
+        @media (max-width: 768px) { .ref-item { flex-direction: column; text-align: center; gap: 30px; } .stat { text-align: center; } }
     </style>
 </head>
 <body>
-    <nav class="navbar"><a href="index.html" class="logo">TwoTheMoon</a></nav>
+    <nav class="navbar">
+        <a href="index.html" class="logo">TwoTheMoon</a>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Főoldal</a></li>
+            <li><a href="fesztival.html">Fesztiválok</a></li>
+            <li><a href="ceges.html">Üzleti</a></li>
+            <li><a href="privat.html">Privát</a></li>
+            <li><a href="referencia.html">Referencia</a></li>
+            <li><a href="kapcsolat.html">Kapcsolat</a></li>
+        </ul>
+    </nav>
     <div class="content">
-        <a href="index.html" class="back-link">← Vissza</a>
         <h1>Mérföldkövek</h1>
-        
         <div class="ref-item">
-            <div class="ref-info">
-                <h2>OneDay '25</h2>
-                <p>A sorozat eddigi legnagyobb produkciója. Teljes körű helyszíni menedzsment, nemzetközi line-up és 48 órás folyamatos üzemidő.</p>
-            </div>
-            <div class="stats">
-                <span>5000+</span>
-                <label>Résztvevő</label>
-            </div>
+            <div class="info"><h2>OneDay '25</h2><p>Teljes körű produkciós menedzsment, nemzetközi booking és 48 órás helyszíni irányítás.</p></div>
+            <div class="stat"><span>5000+</span><label>Résztvevő</label></div>
         </div>
-
         <div class="ref-item">
-            <div class="ref-info">
-                <h2>OneDay '24</h2>
-                <p>A koncepció debütálása. Saját építésű látványvilág és komplex logisztikai háttér egy napba sűrítve.</p>
-            </div>
-            <div class="stats">
-                <span>2500+</span>
-                <label>Résztvevő</label>
-            </div>
+            <div class="info"><h2>OneDay '24</h2><p>A sorozat debütálása. Saját építésű látványvilág és komplex logisztikai háttér.</p></div>
+            <div class="stat"><span>2500+</span><label>Résztvevő</label></div>
         </div>
-
         <div class="ref-item">
-            <div class="ref-info">
-                <h2>Club Events</h2>
-                <p>A gyökereink. 300-600 fős exkluzív események, ahol a precizitást és az alapokat elsajátítottuk.</p>
-            </div>
-            <div class="stats">
-                <span>50+</span>
-                <label>Sikeres projekt</label>
-            </div>
+            <div class="info"><h2>Club Projects</h2><p>50+ sikeres klubest és exkluzív rendezvény az elmúlt években.</p></div>
+            <div class="stat"><span>50+</span><label>Esemény</label></div>
         </div>
     </div>
+    <script>function toggleMenu(){document.getElementById('navLinks').classList.toggle('active');document.querySelector('.hamburger').classList.toggle('open');}</script>
 </body>
 </html>
