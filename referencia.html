@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referenciák | TwoTheMoon</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #000; --silver: #C0C0C0; --border: rgba(255,255,255,0.1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg); color: #fff; line-height: 1.6; }
+        .navbar { position: fixed; top: 0; width: 100%; height: 70px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background: #000; border-bottom: 1px solid var(--border); z-index: 1000; }
+        .logo { font-family: 'Montserrat'; font-weight: 900; font-size: 1.3rem; text-decoration: none; color: #fff; }
+        .content { padding: 140px 10% 80px; max-width: 1100px; margin: 0 auto; }
+        h1 { font-family: 'Montserrat'; font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; margin-bottom: 60px; }
+        .ref-item { border: 1px solid var(--border); padding: 60px; margin-bottom: 40px; display: flex; justify-content: space-between; align-items: center; }
+        .ref-info h2 { font-family: 'Montserrat'; text-transform: uppercase; font-size: 2rem; margin-bottom: 10px; }
+        .ref-info p { color: #888; max-width: 500px; }
+        .stats { text-align: right; }
+        .stats span { display: block; font-family: 'Montserrat'; font-size: 3rem; font-weight: 900; line-height: 1; }
+        .stats label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--silver); }
+        .back-link { display: inline-block; margin-bottom: 30px; color: #555; text-decoration: none; text-transform: uppercase; font-size: 0.7rem; }
+        @media (max-width: 768px) { .ref-item { flex-direction: column; text-align: center; gap: 30px; } .stats { text-align: center; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar"><a href="index.html" class="logo">TwoTheMoon</a></nav>
+    <div class="content">
+        <a href="index.html" class="back-link">← Vissza</a>
+        <h1>Mérföldkövek</h1>
+        
+        <div class="ref-item">
+            <div class="ref-info">
+                <h2>OneDay '25</h2>
+                <p>A sorozat eddigi legnagyobb produkciója. Teljes körű helyszíni menedzsment, nemzetközi line-up és 48 órás folyamatos üzemidő.</p>
+            </div>
+            <div class="stats">
+                <span>5000+</span>
+                <label>Résztvevő</label>
+            </div>
+        </div>
+
+        <div class="ref-item">
+            <div class="ref-info">
+                <h2>OneDay '24</h2>
+                <p>A koncepció debütálása. Saját építésű látványvilág és komplex logisztikai háttér egy napba sűrítve.</p>
+            </div>
+            <div class="stats">
+                <span>2500+</span>
+                <label>Résztvevő</label>
+            </div>
+        </div>
+
+        <div class="ref-item">
+            <div class="ref-info">
+                <h2>Club Events</h2>
+                <p>A gyökereink. 300-600 fős exkluzív események, ahol a precizitást és az alapokat elsajátítottuk.</p>
+            </div>
+            <div class="stats">
+                <span>50+</span>
+                <label>Sikeres projekt</label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
