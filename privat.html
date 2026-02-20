@@ -3,36 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privát Események | TwoTheMoon</title>
-    <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png">
+    <title>Privát Produkciók | TwoTheMoon</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <style>
         :root { --bg: #000; --silver: #C0C0C0; --border: rgba(255,255,255,0.1); }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background: var(--bg); color: #fff; line-height: 1.6; }
-        .navbar { position: fixed; top: 0; width: 100%; height: 70px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background: #000; border-bottom: 1px solid var(--border); z-index: 1000; }
-        .logo { font-family: 'Montserrat'; font-weight: 900; font-size: 1.3rem; text-decoration: none; color: #fff; }
+        .navbar { position: fixed; top: 0; width: 100%; height: 90px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background: #000; border-bottom: 1px solid var(--border); z-index: 1000; }
+        .logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
+        .logo .main { font-family: 'Montserrat'; font-weight: 900; font-size: 1.4rem; letter-spacing: 1px; }
+        .logo .sub { font-family: 'Montserrat'; font-size: 0.5rem; letter-spacing: 3px; color: var(--silver); margin-top: 4px; }
         .nav-links { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: #050505; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px; transition: 0.4s; border-left: 1px solid var(--border); z-index: 999; list-style: none; }
         .nav-links.active { right: 0; }
         .nav-links a { text-decoration: none; color: #fff; font-size: 0.9rem; text-transform: uppercase; font-family: 'Montserrat'; }
-        .hamburger { cursor: pointer; display: flex; flex-direction: column; gap: 6px; z-index: 1001; }
-        .hamburger span { display: block; width: 28px; height: 2px; background: #fff; transition: 0.3s; }
+        .hamburger { cursor: pointer; display: flex; flex-direction: column; gap: 7px; z-index: 1001; }
+        .hamburger span { display: block; width: 25px; height: 1px; background: #fff; transition: 0.3s; }
         .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
         .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-        .content { padding: 140px 10% 80px; max-width: 1100px; margin: 0 auto; }
+        .content { padding: 160px 10% 80px; max-width: 1100px; margin: 0 auto; }
         h1 { font-family: 'Montserrat'; font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; margin-bottom: 30px; line-height: 1; }
         .service-list { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 60px 0; }
         .item { border-bottom: 1px solid var(--border); padding-bottom: 30px; }
         .item h3 { font-family: 'Montserrat'; text-transform: uppercase; font-size: 1.1rem; margin-bottom: 15px; }
         .item p { color: #888; font-size: 0.95rem; }
-        .btn { display: inline-block; background: #fff; color: #000; padding: 18px 45px; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 0.85rem; border: 1px solid #fff; transition: 0.3s; }
-        .btn:hover { background: transparent; color: #fff; }
+        .btn { display: inline-block; background: #fff; color: #000; padding: 18px 45px; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 0.85rem; }
         @media (max-width: 768px) { .service-list { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <a href="index.html" class="logo">TwoTheMoon</a>
+        <a href="index.html" class="logo">
+            <div class="main"><span style="color: #fff;">Two</span><span style="color: var(--silver);">TheMoon</span></div>
+            <div class="sub">PRODUCTION HOUSE</div>
+        </a>
         <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Főoldal</a></li>
@@ -44,15 +47,15 @@
         </ul>
     </nav>
     <div class="content">
-        <h1>Privát <br> Produkciók</h1>
-        <p style="font-size: 1.2rem; color: #ccc; margin-bottom: 50px; border-left: 2px solid var(--silver); padding-left: 25px;">Személyre szabott események, ahol a diszkréció és a minőség nem kérdés.</p>
+        <h1>Privát <br> Események</h1>
+        <p style="font-size: 1.2rem; color: #ccc; margin-bottom: 50px; border-left: 1px solid var(--silver); padding-left: 25px; font-weight: 200;">Diszkréció és prémium technikai háttér zártkörű rendezvényekhez.</p>
         <div class="service-list">
-            <div class="item"><h3>Esküvők</h3><p>Modern látványvilág és kifogástalan technikai háttér.</p></div>
-            <div class="item"><h3>Jubileumok</h3><p>VIP partik koordinálása a helyszíntől a fellépőkig.</p></div>
-            <div class="item"><h3>Eszközbérlés</h3><p>Saját prémium bútorzat és technikai berendezések.</p></div>
-            <div class="item"><h3>Vendéglátás</h3><p>Válogatott catering partnerek és profi stáb irányítása.</p></div>
+            <div class="item"><h3>Esküvők</h3><p>Egyedi látványtervezés, professzionális fény- és hangtechnika.</p></div>
+            <div class="item"><h3>VIP Jubileumok</h3><p>Teljes produkciós felügyelet a helyszíntől a programig.</p></div>
+            <div class="item"><h3>Catering koordináció</h3><p>Prémium gasztronómiai partnerek kezelése.</p></div>
+            <div class="item"><h3>Design & Berendezés</h3><p>Saját bútorzat és látványelemek biztosítása.</p></div>
         </div>
-        <a href="kapcsolat.html" class="btn">Egyedi Brief Küldése</a>
+        <a href="kapcsolat.html" class="btn">Egyedi Brief</a>
     </div>
     <script>function toggleMenu(){document.getElementById('navLinks').classList.toggle('active');document.querySelector('.hamburger').classList.toggle('open');}</script>
 </body>
