@@ -3,67 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TwoTheMoon Events | Next Level Production</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;800&display=swap" rel="stylesheet">
+    <title>TwoTheMoon - Eseményszervezés</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #050508; --text: #ffffff; --accent: #444; }
-        body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; overflow-x: hidden; }
-        
-        .hero {
-            height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center;
-            position: relative; padding: 0 20px;
+        /* ARCULATI SZÍNEK ÉS VÁLTOZÓK */
+        :root {
+            --bg-color: #050505;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --accent-color: #ffffff;
+            --text-main: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --nav-height: 80px;
         }
 
-        .moon-glow {
-            position: absolute; width: 60vw; height: 60vw;
-            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(5,5,8,0) 70%);
-            border-radius: 50%; z-index: -1;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
         }
 
-        h1 { 
-            font-size: clamp(3rem, 12vw, 9rem); font-weight: 800; 
-            margin: 0; letter-spacing: -2px; line-height: 0.85;
+        html {
+            scroll-behavior: smooth; /* Finom görgetés a menüpontokhoz */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ÜVEGHATÁSÚ NAVIGÁCIÓ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--nav-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 7%;
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 9999;
+        }
+
+        /* SZÖVEGES LOGÓ (BAL FENT) */
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            letter-spacing: -1px;
             text-transform: uppercase;
+            color: #fff;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
         }
 
-        .num { opacity: 0.3; }
-
-        .tagline { 
-            margin-top: 40px; font-size: clamp(1rem, 3vw, 1.5rem); 
-            letter-spacing: 5px; font-weight: 200; text-transform: uppercase; color: #aaa;
+        .logo-text span {
+            font-weight: 300;
+            color: var(--text-dim);
         }
 
-        .legacy {
-            margin-top: 60px; padding: 15px 30px; border: 1px solid var(--accent);
-            font-size: 0.9rem; letter-spacing: 2px; opacity: 0.7;
+        .logo-text:hover {
+            opacity: 0.8;
         }
 
-        .contact-btn {
-            margin-top: 80px; color: var(--text); text-decoration: none;
-            font-size: 1.1rem; border-bottom: 1px solid #fff; padding-bottom: 5px;
-            transition: 0.3s;
+        /* MENÜ STÍLUSA */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
         }
-        .contact-btn:hover { opacity: 0.6; }
 
-        footer { position: absolute; bottom: 30px; font-size: 0.7rem; opacity: 0.3; letter-spacing: 1px; }
+        .nav-menu li {
+            margin-left: 35px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #fff;
+        }
+
+        /* MOBIL HAMBURGER */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        .bar {
+            width: 22px;
+            height: 1.5px;
+            background-color: #fff;
+            margin: 3px 0;
+            transition: 0.4s;
+        }
+
+        /* SZEKCIÓK ÉS KÁRTYÁK */
+        section {
+            padding: 140px 10% 60px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            padding: 60px;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: #fff;
+            letter-spacing: -1px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            max-width: 600px;
+        }
+
+        /* MOBIL NÉZET BEÁLLÍTÁSAI */
+        @media screen and (max-width: 850px) {
+            .navbar { padding: 0 5%; }
+            
+            .menu-toggle { display: flex; }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: #050505;
+                flex-direction: column;
+                justify-content: center;
+                transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+            }
+
+            .nav-menu.active { right: 0; }
+
+            .nav-menu li {
+                margin: 20px 0;
+                margin-left: 0;
+            }
+
+            .nav-menu a { font-size: 1.5rem; }
+            
+            h2 { font-size: 2.2rem; }
+        }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <div class="moon-glow"></div>
-        <h1><span class="num">TWO</span>THE<br>MOON</h1>
-        <div class="tagline">Next Level Event Production</div>
-        
-        <div class="legacy">
-            BORN FROM THE FOUNDATION OF ONE DAY FESTIVAL
+
+    <nav class="navbar">
+        <a href="#" class="logo-text">Two<span>The</span>Moon</a>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
 
-        <a href="mailto:iroda@twothemoonevents.hu" class="contact-btn">KAPCSOLATFELVÉTEL</a>
+        <ul class="nav-menu">
+            <li><a href="#rolunk">Rólunk</a></li>
+            <li><a href="#csomagjaink">Csomagjaink</a></li>
+            <li><a href="#referencia">Referencia</a></li>
+            <li><a href="#kapcsolat">Kapcsolat</a></li>
+        </ul>
+    </nav>
 
-        <footer>
-            &copy; 2026 TWOTHEMOON EVENTS. ALL RIGHTS RESERVED.
-        </footer>
-    </div>
+    <section id="rolunk">
+        <div class="container">
+            <div class="card">
+                <h2>Rólunk</h2>
+                <p>A TwoTheMoon nem csupán eseményeket szervez. Élményeket alkotunk, ahol a precizitás találkozik a kreativitással. Prémium megoldások, kötöttségek nélkül.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="csomagjaink">
+        <div class="container">
+            <div class="card">
+                <h2>Csomagjaink</h2>
+                <p>Fedezd fel exkluzív ajánlatainkat. Az alapvető koordinációtól a teljes körű, "all-inclusive" szervezésig mindenre van megoldásunk.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="referencia">
+        <div class="container">
+            <div class="card">
+                <h2>Referencia</h2>
+                <p>Eddigi munkáink során elégedett ügyfelek és felejthetetlen pillanatok jelzik az utunkat. Legyen a te eseményed a következő sikerünk.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="kapcsolat">
+        <div class="container">
+            <div class="card">
+                <h2>Kapcsolat</h2>
+                <p>Készen állsz az indulásra? Keress minket bizalommal, és valósítsuk meg együtt az elképzeléseidet.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const menu = document.querySelector('#mobile-menu');
+        const menuLinks = document.querySelector('.nav-menu');
+
+        // Mobil menü nyitás/zárás
+        menu.addEventListener('click', function() {
+            menuLinks.classList.toggle('active');
+            
+            // Hamburger animáció
+            const bars = document.querySelectorAll('.bar');
+            if(menuLinks.classList.contains('active')) {
+                bars[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
+                bars[1].style.opacity = '0';
+                bars[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
+            } else {
+                bars[0].style.transform = '';
+                bars[1].style.opacity = '1';
+                bars[2].style.transform = '';
+            }
+        });
+
+        // Menüpontra kattintáskor záródjon be (mobilon)
+        document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
+            menuLinks.classList.remove('active');
+            const bars = document.querySelectorAll('.bar');
+            bars[0].style.transform = '';
+            bars[1].style.opacity = '1';
+            bars[2].style.transform = '';
+        }));
+    </script>
+
 </body>
 </html>
