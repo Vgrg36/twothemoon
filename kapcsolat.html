@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapcsolat | TwoTheMoon</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #000; --silver: #C0C0C0; --border: rgba(255,255,255,0.1); --input-bg: #0a0a0a; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg); color: #fff; line-height: 1.6; }
+        
+        .navbar { position: fixed; top: 0; width: 100%; height: 70px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background: #000; border-bottom: 1px solid var(--border); z-index: 1000; }
+        .logo { font-family: 'Montserrat'; font-weight: 900; font-size: 1.3rem; text-decoration: none; color: #fff; }
+        
+        .content { padding: 140px 10% 80px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; }
+        
+        h1 { font-family: 'Montserrat'; font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; margin-bottom: 20px; line-height: 1; }
+        .contact-info { color: #888; font-size: 1.1rem; }
+        .contact-info b { color: #fff; display: block; margin-top: 20px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+
+        /* ŰRLAP STÍLUS */
+        .form-container { background: #050505; border: 1px solid var(--border); padding: 40px; border-radius: 4px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .full-width { grid-column: span 2; }
+        
+        label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--silver); margin-bottom: 8px; }
+        input, select, textarea { 
+            width: 100%; background: var(--input-bg); border: 1px solid #1a1a1a; padding: 15px; 
+            color: #fff; font-size: 0.95rem; border-radius: 2px; outline: none; transition: 0.3s;
+        }
+        input:focus, select:focus, textarea:focus { border-color: var(--silver); background: #0f0f0f; }
+
+        .submit-btn { 
+            margin-top: 20px; width: 100%; background: #fff; color: #000; border: none; 
+            padding: 20px; text-transform: uppercase; font-weight: 900; letter-spacing: 2px; 
+            cursor: pointer; transition: 0.4s; 
+        }
+        .submit-btn:hover { background: var(--silver); transform: translateY(-2px); }
+
+        .back-link { display: inline-block; margin-bottom: 30px; color: #555; text-decoration: none; text-transform: uppercase; font-size: 0.7rem; grid-column: span 2; }
+
+        @media (max-width: 900px) {
+            .content { grid-template-columns: 1fr; gap: 50px; padding-top: 100px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">TwoTheMoon</a>
+    </nav>
+
+    <div class="content">
+        <div class="info-side">
+            <a href="index.html" class="back-link">← Főoldal</a>
+            <h1>Indítsuk el <br> a projektet.</h1>
+            <p class="contact-info">
+                Készen állunk a következő nagy volumenű kihívásra. Adja meg az alapvető paramétereket, és 24 órán belül szakmai javaslattal keressük.
+                
+                <b>E-mail</b>
+                office@twothemoon.hu
+                
+                <b>Helyszín</b>
+                Budapest, Hungary
+            </p>
+        </div>
+
+        <div class="form-container">
+            <form id="contactForm">
+                <div class="form-grid">
+                    <div>
+                        <label>Teljes név</label>
+                        <input type="text" placeholder="Példa János" required>
+                    </div>
+                    <div>
+                        <label>Cégnév (opcionális)</label>
+                        <input type="text" placeholder="Zrt. / Kft.">
+                    </div>
+                    <div class="full-width">
+                        <label>E-mail cím</label>
+                        <input type="email" placeholder="janos@pelda.hu" required>
+                    </div>
+                    <div class="full-width">
+                        <label>Esemény típusa</label>
+                        <select required>
+                            <option value="" disabled selected>Válasszon...</option>
+                            <option value="fesztival">Fesztivál Produkció</option>
+                            <option value="ceges">Céges / Üzleti Rendezvény</option>
+                            <option value="privat">Privát / VIP Esemény</option>
+                            <option value="egyeb">Egyéb / Eszközbérlés</option>
+                        </select>
+                    </div>
+                    <div class="full-width">
+                        <label>Rövid brief / Üzenet</label>
+                        <textarea rows="5" placeholder="Tervezett létszám, helyszín, időpont és technikai igények..." required></textarea>
+                    </div>
+                    <div class="full-width">
+                        <button type="submit" class="submit-btn">Ajánlatkérés küldése</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Köszönjük a megkeresést! Kollégánk hamarosan felveszi Önnel a kapcsolatot.');
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
