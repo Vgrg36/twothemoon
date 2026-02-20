@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privát Események | TwoTheMoon</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #000; --silver: #C0C0C0; --border: rgba(255,255,255,0.1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg); color: #fff; line-height: 1.6; }
+        .navbar { position: fixed; top: 0; width: 100%; height: 70px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background: #000; border-bottom: 1px solid var(--border); z-index: 1000; }
+        .logo { font-family: 'Montserrat'; font-weight: 900; font-size: 1.3rem; text-decoration: none; color: #fff; }
+        .content { padding: 140px 10% 80px; max-width: 1100px; margin: 0 auto; }
+        .category { color: var(--silver); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; display: block; }
+        h1 { font-family: 'Montserrat'; font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; margin-bottom: 30px; line-height: 1; }
+        .lead { font-size: 1.2rem; color: #ccc; margin-bottom: 50px; border-left: 2px solid var(--silver); padding-left: 25px; }
+        .service-list { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 60px 0; }
+        .service-item { border-bottom: 1px solid var(--border); padding-bottom: 30px; }
+        .service-item h3 { font-family: 'Montserrat'; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 15px; }
+        .service-item p { color: #888; font-size: 0.95rem; }
+        .cta-section { border: 1px solid var(--border); padding: 50px; text-align: center; }
+        .btn { display: inline-block; background: #fff; color: #000; padding: 18px 45px; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 0.85rem; }
+        .back-link { display: inline-block; margin-bottom: 30px; color: #555; text-decoration: none; text-transform: uppercase; font-size: 0.7rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar"><a href="index.html" class="logo">TwoTheMoon</a></nav>
+    <div class="content">
+        <a href="index.html" class="back-link">← Vissza</a>
+        <span class="category">Private & VIP</span>
+        <h1>Privát <br> Produkciók</h1>
+        <p class="lead">Zártkörű események, ahol a diszkréció és a technikai tökéletesség találkozik. A privát szférában is a fesztiváloknál megszokott precizitással dolgozunk.</p>
+        <div class="service-list">
+            <div class="service-item">
+                <h3>Esküvők modern köntösben</h3>
+                <p>Hagyományok, de professzionális stábbal. Épített látványvilág, egyedi fénytechnika és prémium hangosítás.</p>
+            </div>
+            <div class="service-item">
+                <h3>VIP Jubileumok</h3>
+                <p>Születésnapok és évfordulók teljes körű menedzselése a helyszín biztosításától a fellépők koordinálásáig.</p>
+            </div>
+            <div class="service-item">
+                <h3>Eszközpark és Design</h3>
+                <p>Saját bútorzat, egyedi bárpultok és technikai eszközök, amelyek illeszkednek az esemény esztétikájához.</p>
+            </div>
+            <div class="service-item">
+                <h3>Catering & Hospitality</h3>
+                <p>Válogatott gasztronómiai partnerek és professzionális kiszolgáló személyzet irányítása.</p>
+            </div>
+        </div>
+        <div class="cta-section">
+            <a href="kapcsolat.html" class="btn">Egyedi egyeztetés</a>
+        </div>
+    </div>
+</body>
+</html>
