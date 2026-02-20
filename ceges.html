@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Üzleti Rendezvények | TwoTheMoon</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #000; --silver: #C0C0C0; --border: rgba(255,255,255,0.1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg); color: #fff; line-height: 1.6; }
+        
+        .navbar { position: fixed; top: 0; width: 100%; height: 70px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background: #000; border-bottom: 1px solid var(--border); z-index: 1000; }
+        .logo { font-family: 'Montserrat'; font-weight: 900; font-size: 1.3rem; text-decoration: none; color: #fff; letter-spacing: 1px; }
+        
+        .content { padding: 140px 10% 80px; max-width: 1100px; margin: 0 auto; }
+        .category { color: var(--silver); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; display: block; }
+        h1 { font-family: 'Montserrat'; font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; margin-bottom: 30px; line-height: 1; }
+        
+        .lead { font-size: 1.2rem; color: #ccc; margin-bottom: 50px; max-width: 800px; font-weight: 300; border-left: 2px solid var(--silver); padding-left: 25px; }
+        
+        /* SZAKMAI RÁCS */
+        .service-list { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 60px 0; }
+        .service-item { border-bottom: 1px solid var(--border); padding-bottom: 30px; }
+        .service-item h3 { font-family: 'Montserrat'; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 15px; color: #fff; }
+        .service-item p { color: #888; font-size: 0.95rem; }
+
+        /* AJÁNLATKÉRŐ SZEKCIÓ */
+        .cta-section { background: #080808; border: 1px solid var(--border); padding: 60px; margin-top: 40px; }
+        .cta-section h2 { font-family: 'Montserrat'; font-size: 1.8rem; text-transform: uppercase; margin-bottom: 20px; }
+        .btn { display: inline-block; background: #fff; color: #000; padding: 18px 45px; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
+        .btn:hover { background: var(--silver); }
+
+        .back-link { display: inline-block; margin-bottom: 30px; color: #555; text-decoration: none; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; transition: 0.3s; }
+        .back-link:hover { color: #fff; }
+
+        @media (max-width: 768px) { .service-list { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">TwoTheMoon</a>
+    </nav>
+
+    <div class="content">
+        <a href="index.html" class="back-link">← Vissza a főoldalra</a>
+        <span class="category">B2B / Üzleti Divízió</span>
+        <h1>Üzleti <br> Rendezvények</h1>
+        
+        <p class="lead">A fesztiválprodukciók során megszerzett logisztikai precizitást és technikai fegyelmet ültetjük át vállalati környezetbe. Célunk az üzenetközpontú lebonyolítás, sallangok nélkül.</p>
+        
+        <div class="service-list">
+            <div class="service-item">
+                <h3>Vállalati gálák és vacsorák</h3>
+                <p>Reprezentatív megjelenés, ahol a technikai látványvilág támogatja az esemény rangját. Teljes körű catering koordináció és protokolláris figyelem.</p>
+            </div>
+            <div class="service-item">
+                <h3>Szakmai konferenciák</h3>
+                <p>Stabil audiovizuális háttér, épített díszletek és pontos menetrend-menedzsment. Stream-megoldások és interaktív technikai támogatás.</p>
+            </div>
+            <div class="service-item">
+                <h3>Strukturált csapatépítők</h3>
+                <p>Valódi aktivitások, saját eszközparkkal. A logisztikát és a biztonsági hátteret a legnagyobb fesztiválok sztenderdjei szerint kezeljük.</p>
+            </div>
+            <div class="service-item">
+                <h3>Partner találkozók</h3>
+                <p>Letisztult, professzionális környezet a tárgyalásokhoz és ügyfélpartikhoz, ahol a technika láthatatlanul, de hibátlanul szolgálja az eseményt.</p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Projekttervezés</h2>
+            <p style="margin-bottom: 30px; color: #888;">Amennyiben szakmai partnert keres üzleti eseményeinek megvalósításához, vegye fel velünk a kapcsolatot egy egyeztetésre.</p>
+            <a href="kapcsolat.html" class="btn">Konzultáció kérése</a>
+        </div>
+    </div>
+
+</body>
+</html>
