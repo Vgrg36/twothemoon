@@ -3,243 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TwoTheMoon | Premium Event Management</title>
-    
+    <title>TwoTheMoon | Produkciós Iroda</title>
     <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png">
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-dark: #020408; /* Mély éjfekete-kék */
-            --silver: #C0C0C0; /* Klasszikus ezüst */
-            --deep-blue: #0A192F; /* Sötét tengerészkék */
-            --glass-silver: rgba(192, 192, 192, 0.05);
-            --border-silver: rgba(192, 192, 192, 0.2);
-            --text-silver: #E5E5E5;
-        }
-
+        :root { --bg: #000; --silver: #C0C0C0; --border: rgba(255,255,255,0.1); }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        html { scroll-behavior: smooth; }
-        body { 
-            background-color: var(--bg-dark); 
-            color: var(--text-silver); 
-            overflow-x: hidden;
-            background: radial-gradient(circle at 50% 50%, #0d1b2a 0%, #020408 100%);
-        }
-
-        /* HÁTTÉR DEKOR */
-        .glow {
-            position: fixed;
-            width: 800px; height: 800px;
-            background: radial-gradient(circle, rgba(10, 25, 47, 0.4) 0%, rgba(0,0,0,0) 70%);
-            z-index: -1; filter: blur(100px);
-        }
-        .g1 { top: -300px; right: -200px; }
-        .g2 { bottom: -300px; left: -200px; }
-
-        /* NAVIGÁCIÓ */
-        .navbar {
-            position: fixed; top: 0; width: 100%; height: 90px;
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 0 7%; background: rgba(2, 4, 8, 0.85);
-            backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-silver); z-index: 1000;
-        }
-        .logo { 
-            font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.6rem; 
-            text-transform: uppercase; color: #fff; text-decoration: none; 
-            letter-spacing: 2px;
-            background: linear-gradient(to right, #ffffff 0%, #A9A9A9 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .nav-links { display: flex; list-style: none; gap: 40px; }
-        .nav-links a { text-decoration: none; color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; transition: 0.4s; }
-        .nav-links a:hover { color: var(--silver); text-shadow: 0 0 15px rgba(255,255,255,0.4); }
-
-        /* SZEKCIÓK */
-        section { padding: 160px 10%; min-height: 100vh; display: flex; align-items: center; }
-        .flex-container { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 80px; }
-        
-        h2 { 
-            font-family: 'Montserrat', sans-serif; font-size: clamp(2.8rem, 6vw, 5rem); 
-            line-height: 0.95; margin-bottom: 35px; text-transform: uppercase; 
-            color: #fff; letter-spacing: -2px;
-        }
-        .silver-text { color: var(--silver); font-weight: 300; }
-        p { color: #94a3b8; font-size: 1.25rem; line-height: 1.9; max-width: 650px; font-weight: 300; }
-
-        /* EZÜST KÁRTYÁK */
-        .silver-card {
-            background: var(--glass-silver);
-            border: 1px solid var(--border-silver);
-            padding: 60px; border-radius: 40px; 
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-            transition: 0.5s ease;
-        }
-        .silver-card:hover { border-color: rgba(192, 192, 192, 0.5); transform: translateY(-10px); }
-
-        /* GRID RENDSZER */
-        .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px; width: 100%; margin-top: 60px;
-        }
-        .service-item {
-            padding: 40px; border-left: 1px solid var(--border-silver);
-            background: linear-gradient(90deg, rgba(192,192,192,0.02) 0%, rgba(0,0,0,0) 100%);
-            transition: 0.3s;
-        }
-        .service-item:hover { border-left: 3px solid #fff; padding-left: 45px; }
-        .service-item h3 { font-family: 'Montserrat'; font-size: 1.5rem; margin-bottom: 15px; color: #fff; }
-
-        /* REFERENCIA CÍMKE */
-        .badge {
-            display: inline-block; padding: 6px 15px; border: 1px solid var(--silver);
-            border-radius: 50px; color: var(--silver); font-size: 0.7rem; 
-            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;
-        }
-
-        /* KAPCSOLAT FORM */
-        .form-group { width: 100%; max-width: 600px; }
-        input, textarea { 
-            width: 100%; background: rgba(255,255,255,0.03); border: none;
-            border-bottom: 1px solid var(--border-silver); padding: 20px 0;
-            color: #fff; margin-bottom: 30px; font-size: 1.1rem; outline: none;
-            transition: 0.3s;
-        }
-        input:focus, textarea:focus { border-bottom: 1px solid #fff; }
-        button { 
-            background: transparent; border: 1px solid #fff; color: #fff;
-            padding: 20px 60px; font-size: 0.9rem; text-transform: uppercase;
-            letter-spacing: 3px; cursor: pointer; transition: 0.4s;
-        }
-        button:hover { background: #fff; color: #000; }
-
-        /* REVIEWS */
-        .review-scroll { display: flex; gap: 40px; overflow-x: auto; padding-bottom: 30px; scrollbar-width: none; }
-        .rev-box { min-width: 300px; opacity: 0.7; transition: 0.3s; }
-        .rev-box:hover { opacity: 1; }
-
-        @media (max-width: 1024px) {
-            .flex-container { flex-direction: column; text-align: center; }
-            h2 { font-size: 3.5rem; }
-            .nav-links { display: none; }
-        }
+        body { background: var(--bg); color: #fff; overflow-x: hidden; }
+        .navbar { position: fixed; top: 0; width: 100%; height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background: rgba(0,0,0,0.9); border-bottom: 1px solid var(--border); z-index: 1000; }
+        .logo { font-family: 'Montserrat'; font-weight: 900; font-size: 1.5rem; text-decoration: none; color: #fff; letter-spacing: 2px; }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--silver); font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        h1 { font-family: 'Montserrat'; font-size: clamp(3rem, 10vw, 7rem); text-transform: uppercase; line-height: 0.8; margin-bottom: 20px; }
+        .services-nav { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; min-height: 300px; border-top: 1px solid var(--border); }
+        .s-link { border-right: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; align-items: center; text-decoration: none; color: #fff; transition: 0.4s; padding: 40px; }
+        .s-link:hover { background: #fff; color: #000; }
+        .s-link h3 { font-family: 'Montserrat'; text-transform: uppercase; font-size: 1.5rem; }
+        @media (max-width: 768px) { .nav-links { display: none; } .services-nav { grid-template-columns: 1fr; } .s-link { border-right: none; border-bottom: 1px solid var(--border); } }
     </style>
 </head>
 <body>
-
-    <div class="glow g1"></div>
-    <div class="glow g2"></div>
-
     <nav class="navbar">
-        <a href="#" class="logo">TwoTheMoon</a>
+        <a href="index.html" class="logo">TwoTheMoon</a>
         <ul class="nav-links">
-            <li><a href="#rolunk">Rólunk</a></li>
-            <li><a href="#csomagjaink">Szolgáltatások</a></li>
-            <li><a href="#referencia">Referencia</a></li>
-            <li><a href="#kapcsolat">Kapcsolat</a></li>
+            <li><a href="rolunk.html">Rólunk</a></li>
+            <li><a href="referencia.html">Referencia</a></li>
+            <li><a href="kapcsolat.html">Kapcsolat</a></li>
         </ul>
     </nav>
-
-    <section id="rolunk">
-        <div class="flex-container" data-aos="fade-up">
-            <div class="text-side">
-                <span class="badge">A MI UTUNK</span>
-                <h2>Szakértelem <br> <span class="silver-text">a sötétben.</span></h2>
-                <p>Középsulis végzősként egy fesztivál éjszakáján döntöttük el: saját utat vágunk. A 300 fős klubestektől eljutottunk az 5000 fős monstrum fesztiválokig. Nem csak szervezünk, vezényelünk.</p>
-            </div>
-            <div class="visual-side" style="opacity: 0.2; font-size: 12rem; font-family: Montserrat; font-weight: 900;">
-                TTM
-            </div>
-        </div>
-    </section>
-
-    <section id="csomagjaink" style="display: block;">
-        <h2 data-aos="fade-right">Exkluzív <br> <span class="silver-text">szolgáltatások.</span></h2>
-        <div class="services-grid">
-            <div class="service-item" data-aos="fade-up" data-aos-delay="100">
-                <h3>Festival Giant</h3>
-                <p style="font-size: 0.9rem;">Teljes körű produkció 5000 fő felett is. Színpadtechnika és booking.</p>
-            </div>
-            <div class="service-item" data-aos="fade-up" data-aos-delay="200">
-                <h3>Corporate Silver</h3>
-                <p style="font-size: 0.9rem;">Céges csapatépítők és gálák prémium kivitelben, egyedi igényekre.</p>
-            </div>
-            <div class="service-item" data-aos="fade-up" data-aos-delay="300">
-                <h3>Private VIP</h3>
-                <p style="font-size: 0.9rem;">Zártkörű események, ahol a diszkréció és a minőség alapkövetelmény.</p>
-            </div>
-            <div class="service-item" data-aos="fade-up" data-aos-delay="400">
-                <h3>Logistics & Gear</h3>
-                <p style="font-size: 0.9rem;">Eszközbérlés, catering és technikai háttér a legmagasabb szinten.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="referencia">
-        <div class="flex-container" style="flex-direction: row-reverse;" data-aos="fade-up">
-            <div class="text-side">
-                <span class="badge">MÉRFÖLDKŐ</span>
-                <h2>OneDay <br> <span class="silver-text">2024 / 2025</span></h2>
-                <p>A OneDay fesztiválsorozat az eddigi legnagyobb ugrásunk. 5000 résztvevő, nemzetközi line-up és egy olyan ezüstfényű látványvilág, ami új mércét állított fel a hazai rendezvénypiacon.</p>
-            </div>
-            <div class="silver-card" style="flex: 0.8; text-align: center;">
-                <h1 style="font-size: 5rem; font-family: Montserrat;">5K+</h1>
-                <p style="margin: 0 auto;">Látogató / Év</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="kapcsolat">
-        <div class="flex-container">
-            <div class="text-side" data-aos="fade-right">
-                <h2>Induljunk <br> <span class="silver-text">el.</span></h2>
-                <p>Készen állsz a szintlépésre? Küldd el az elképzeléseid, és 24 órán belül felvesszük a kapcsolatot.</p>
-            </div>
-            <div class="form-group" data-aos="fade-left">
-                <form onsubmit="event.preventDefault(); alert('Üzenet fogadva. Hamarosan visszahívunk!');">
-                    <input type="text" placeholder="NEVED" required>
-                    <input type="email" placeholder="E-MAIL CÍMED" required>
-                    <textarea rows="3" placeholder="MIRE KÉSZÜLSZ?"></textarea>
-                    <button type="submit">Küldés</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <section style="min-height: auto; padding-bottom: 100px;">
-        <div style="width: 100%;">
-            <h2 style="font-size: 1.5rem; letter-spacing: 5px; text-align: center; margin-bottom: 60px;">VÉLEMÉNYEK</h2>
-            <div class="review-scroll">
-                <div class="rev-box">
-                    <p style="font-size: 1rem; color: #fff;">"A OneDay '25 minden várakozást felülmúlt. Ezüst minőség."</p>
-                    <small>– Kovács Péter, Fesztiválozó</small>
-                </div>
-                <div class="rev-box">
-                    <p style="font-size: 1rem; color: #fff;">"Profi lebonyolítás, a céges rendezvényünk zseniális lett."</p>
-                    <small>– Szabó Eszter, Marketing Manager</small>
-                </div>
-                <div class="rev-box">
-                    <p style="font-size: 1rem; color: #fff;">"Precíz technika, brutális hangzás. Csak ajánlani tudom."</p>
-                    <small>– Tóth Gergely, DJ</small>
-                </div>
-                <div class="rev-box">
-                    <p style="font-size: 1rem; color: #fff;">"A catering és a VIP kiszolgálás világszínvonalú volt."</p>
-                    <small>– Horváth Balázs, Ügyvezető</small>
-                </div>
-                <div class="rev-box">
-                    <p style="font-size: 1rem; color: #fff;">"Azt kaptuk, amit ígértek: egy felejthetetlen éjszakát."</p>
-                    <small>– Molnár Anna, Szervező partner</small>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-    </script>
+    <div class="hero">
+        <h1>Two The <br> Moon</h1>
+        <p style="letter-spacing: 5px; color: var(--silver); text-transform: uppercase;">Event Production House</p>
+    </div>
+    <div class="services-nav">
+        <a href="fesztival.html" class="s-link"><h3>Fesztiválok</h3><span>01</span></a>
+        <a href="ceges.html" class="s-link"><h3>Üzleti</h3><span>02</span></a>
+        <a href="privat.html" class="s-link"><h3>Privát</h3><span>03</span></a>
+    </div>
 </body>
 </html>
