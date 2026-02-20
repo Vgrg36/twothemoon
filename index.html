@@ -3,214 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TwoTheMoon - Eseményszervezés</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@600;900&display=swap" rel="stylesheet">
+    <title>TwoTheMoon | Premium Event Management</title>
+    
+    <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
         :root {
-            --bg-color: #030303;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --accent: #ffffff;
-            --text-dim: #b0b0b0;
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --bg-dark: #020408; /* Mély éjfekete-kék */
+            --silver: #C0C0C0; /* Klasszikus ezüst */
+            --deep-blue: #0A192F; /* Sötét tengerészkék */
+            --glass-silver: rgba(192, 192, 192, 0.05);
+            --border-silver: rgba(192, 192, 192, 0.2);
+            --text-silver: #E5E5E5;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         html { scroll-behavior: smooth; }
-        body { background-color: var(--bg-color); color: #fff; overflow-x: hidden; }
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-silver); 
+            overflow-x: hidden;
+            background: radial-gradient(circle at 50% 50%, #0d1b2a 0%, #020408 100%);
+        }
 
-        /* DEKORATÍV ALAKZATOK A HÁTTÉRBEN */
-        .bg-shapes {
+        /* HÁTTÉR DEKOR */
+        .glow {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            overflow: hidden;
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(10, 25, 47, 0.4) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1; filter: blur(100px);
         }
-        .shape {
-            position: absolute;
-            filter: blur(80px);
-            border-radius: 50%;
-            opacity: 0.15;
-            background: radial-gradient(circle, #333, #000);
-        }
-        .s1 { width: 400px; height: 400px; top: -100px; left: -100px; }
-        .s2 { width: 500px; height: 500px; bottom: -200px; right: -100px; }
+        .g1 { top: -300px; right: -200px; }
+        .g2 { bottom: -300px; left: -200px; }
 
         /* NAVIGÁCIÓ */
         .navbar {
-            position: fixed;
-            top: 0; width: 100%; height: 80px;
+            position: fixed; top: 0; width: 100%; height: 90px;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 0 7%; background: rgba(3, 3, 3, 0.8);
-            backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border);
-            z-index: 1000;
+            padding: 0 7%; background: rgba(2, 4, 8, 0.85);
+            backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-silver); z-index: 1000;
         }
-        .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.4rem; text-transform: uppercase; text-decoration: none; color: #fff; }
-        .nav-menu { display: flex; list-style: none; }
-        .nav-menu li { margin-left: 30px; }
-        .nav-menu a { text-decoration: none; color: var(--text-dim); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        .nav-menu a:hover { color: #fff; }
+        .logo { 
+            font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.6rem; 
+            text-transform: uppercase; color: #fff; text-decoration: none; 
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #ffffff 0%, #A9A9A9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links { display: flex; list-style: none; gap: 40px; }
+        .nav-links a { text-decoration: none; color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; transition: 0.4s; }
+        .nav-links a:hover { color: var(--silver); text-shadow: 0 0 15px rgba(255,255,255,0.4); }
 
         /* SZEKCIÓK */
-        section {
-            min-height: 100vh;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            padding: 100px 10%; text-align: center;
+        section { padding: 160px 10%; min-height: 100vh; display: flex; align-items: center; }
+        .flex-container { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 80px; }
+        
+        h2 { 
+            font-family: 'Montserrat', sans-serif; font-size: clamp(2.8rem, 6vw, 5rem); 
+            line-height: 0.95; margin-bottom: 35px; text-transform: uppercase; 
+            color: #fff; letter-spacing: -2px;
         }
-        h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; margin-bottom: 30px; text-transform: uppercase; }
+        .silver-text { color: var(--silver); font-weight: 300; }
+        p { color: #94a3b8; font-size: 1.25rem; line-height: 1.9; max-width: 650px; font-weight: 300; }
 
-        /* KÁRTYA STÍLUS */
-        .glass-card {
-            background: var(--card-bg);
-            border: 1px solid var(--glass-border);
-            padding: 50px; border-radius: 30px; width: 100%; max-width: 900px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        /* EZÜST KÁRTYÁK */
+        .silver-card {
+            background: var(--glass-silver);
+            border: 1px solid var(--border-silver);
+            padding: 60px; border-radius: 40px; 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            transition: 0.5s ease;
+        }
+        .silver-card:hover { border-color: rgba(192, 192, 192, 0.5); transform: translateY(-10px); }
+
+        /* GRID RENDSZER */
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px; width: 100%; margin-top: 60px;
+        }
+        .service-item {
+            padding: 40px; border-left: 1px solid var(--border-silver);
+            background: linear-gradient(90deg, rgba(192,192,192,0.02) 0%, rgba(0,0,0,0) 100%);
+            transition: 0.3s;
+        }
+        .service-item:hover { border-left: 3px solid #fff; padding-left: 45px; }
+        .service-item h3 { font-family: 'Montserrat'; font-size: 1.5rem; margin-bottom: 15px; color: #fff; }
+
+        /* REFERENCIA CÍMKE */
+        .badge {
+            display: inline-block; padding: 6px 15px; border: 1px solid var(--silver);
+            border-radius: 50px; color: var(--silver); font-size: 0.7rem; 
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;
         }
 
-        /* CSOMAGOK GRID */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px; width: 100%; max-width: 1100px; margin-top: 40px;
+        /* KAPCSOLAT FORM */
+        .form-group { width: 100%; max-width: 600px; }
+        input, textarea { 
+            width: 100%; background: rgba(255,255,255,0.03); border: none;
+            border-bottom: 1px solid var(--border-silver); padding: 20px 0;
+            color: #fff; margin-bottom: 30px; font-size: 1.1rem; outline: none;
+            transition: 0.3s;
         }
-        .package {
-            background: var(--card-bg);
-            border: 1px solid var(--glass-border);
-            padding: 30px; border-radius: 20px;
-            transition: 0.4s; text-align: left;
+        input:focus, textarea:focus { border-bottom: 1px solid #fff; }
+        button { 
+            background: transparent; border: 1px solid #fff; color: #fff;
+            padding: 20px 60px; font-size: 0.9rem; text-transform: uppercase;
+            letter-spacing: 3px; cursor: pointer; transition: 0.4s;
         }
-        .package:hover { transform: translateY(-10px); background: rgba(255,255,255,0.07); }
-        .package h3 { margin-bottom: 15px; color: #fff; font-size: 1.2rem; }
-        .package ul { list-style: none; color: var(--text-dim); font-size: 0.9rem; }
+        button:hover { background: #fff; color: #000; }
 
-        /* KAPCSOLATI ŰRLAP */
-        .contact-form {
-            display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 500px; margin: 0 auto;
-        }
-        input, textarea {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--glass-border);
-            padding: 15px; border-radius: 10px; color: #fff; outline: none;
-        }
-        button {
-            background: #fff; color: #000; border: none; padding: 15px;
-            border-radius: 10px; font-weight: 700; cursor: pointer; transition: 0.3s;
-        }
-        button:hover { background: #ccc; }
+        /* REVIEWS */
+        .review-scroll { display: flex; gap: 40px; overflow-x: auto; padding-bottom: 30px; scrollbar-width: none; }
+        .rev-box { min-width: 300px; opacity: 0.7; transition: 0.3s; }
+        .rev-box:hover { opacity: 1; }
 
-        /* VÉLEMÉNYEK */
-        .reviews { margin-top: 50px; width: 100%; max-width: 1000px; }
-        .review-card { display: inline-block; width: 300px; margin: 10px; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 15px; text-align: left; vertical-align: top;}
-        .stars { color: #f39c12; margin-bottom: 5px; }
-
-        @media (max-width: 768px) {
-            h2 { font-size: 2rem; }
-            .navbar { padding: 0 20px; }
-            .nav-menu { display: none; }
+        @media (max-width: 1024px) {
+            .flex-container { flex-direction: column; text-align: center; }
+            h2 { font-size: 3.5rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-shapes">
-        <div class="shape s1"></div>
-        <div class="shape s2"></div>
-    </div>
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
 
     <nav class="navbar">
-        <a href="#" class="logo-text">TwoTheMoon</a>
-        <ul class="nav-menu">
+        <a href="#" class="logo">TwoTheMoon</a>
+        <ul class="nav-links">
             <li><a href="#rolunk">Rólunk</a></li>
-            <li><a href="#csomagjaink">Csomagjaink</a></li>
+            <li><a href="#csomagjaink">Szolgáltatások</a></li>
             <li><a href="#referencia">Referencia</a></li>
             <li><a href="#kapcsolat">Kapcsolat</a></li>
         </ul>
     </nav>
 
-    <section id="rolunk" data-aos="fade-up">
-        <div class="glass-card">
-            <h2>A Történetünk</h2>
-            <p>Minden egy végzős középiskolai fesztiválon kezdődött. Miközben a tömegben álltunk, tudtuk, hogy mi ezt másképp, jobban akarjuk csinálni. Az első 300 fős házibuliktól hosszú volt az út az 5000 fős fesztiválok nagyszínpadáig. A TwoTheMoon ma már nem csak egy név, hanem a garancia a felejthetetlen pillanatokra.</p>
-        </div>
-    </section>
-
-    <section id="csomagjaink">
-        <h2 data-aos="fade-up">Szolgáltatásaink</h2>
-        <div class="grid">
-            <div class="package" data-aos="fade-up" data-aos-delay="100">
-                <h3>Fesztiválszervezés</h3>
-                <ul><li>Teljeskörű produkció</li><li>Booking & Stage management</li><li>5000+ főig</li></ul>
+    <section id="rolunk">
+        <div class="flex-container" data-aos="fade-up">
+            <div class="text-side">
+                <span class="badge">A MI UTUNK</span>
+                <h2>Szakértelem <br> <span class="silver-text">a sötétben.</span></h2>
+                <p>Középsulis végzősként egy fesztivál éjszakáján döntöttük el: saját utat vágunk. A 300 fős klubestektől eljutottunk az 5000 fős monstrum fesztiválokig. Nem csak szervezünk, vezényelünk.</p>
             </div>
-            <div class="package" data-aos="fade-up" data-aos-delay="200">
-                <h3>Céges csapatépítők</h3>
-                <ul><li>Egyedi koncepciók</li><li>Helyszín biztosítás</li><li>Workshopok</li></ul>
-            </div>
-            <div class="package" data-aos="fade-up" data-aos-delay="300">
-                <h3>Privát Események</h3>
-                <ul><li>Exkluzív szülinapok</li><li>Esküvők</li><li>VIP koordináció</li></ul>
-            </div>
-            <div class="package" data-aos="fade-up" data-aos-delay="400">
-                <h3>Catering & Eszközök</h3>
-                <ul><li>Bútor bérlés</li><li>Hang- és fénytechnika</li><li>Prémium catering</li></ul>
-            </div>
-            <div class="package" data-aos="fade-up" data-aos-delay="500">
-                <h3>Sport & Jótékonyság</h3>
-                <ul><li>Versenyszervezés</li><li>Gálaestek</li><li>Adománygyűjtő események</li></ul>
+            <div class="visual-side" style="opacity: 0.2; font-size: 12rem; font-family: Montserrat; font-weight: 900;">
+                TTM
             </div>
         </div>
     </section>
 
-    <section id="referencia" data-aos="zoom-in">
-        <div class="glass-card">
-            <h2>Referencia: "The Moon Landing"</h2>
-            <p>A legnagyobb büszkeségünk egy 3 napos, zsinórban teltházas open-air fesztivál, ahol 5000 ember lélegzett egyszerre. Saját építésű színpadtechnika, 0-24 órás catering és egy olyan közösségi élmény, amiről még hónapokig cikkezett a sajtó.</p>
+    <section id="csomagjaink" style="display: block;">
+        <h2 data-aos="fade-right">Exkluzív <br> <span class="silver-text">szolgáltatások.</span></h2>
+        <div class="services-grid">
+            <div class="service-item" data-aos="fade-up" data-aos-delay="100">
+                <h3>Festival Giant</h3>
+                <p style="font-size: 0.9rem;">Teljes körű produkció 5000 fő felett is. Színpadtechnika és booking.</p>
+            </div>
+            <div class="service-item" data-aos="fade-up" data-aos-delay="200">
+                <h3>Corporate Silver</h3>
+                <p style="font-size: 0.9rem;">Céges csapatépítők és gálák prémium kivitelben, egyedi igényekre.</p>
+            </div>
+            <div class="service-item" data-aos="fade-up" data-aos-delay="300">
+                <h3>Private VIP</h3>
+                <p style="font-size: 0.9rem;">Zártkörű események, ahol a diszkréció és a minőség alapkövetelmény.</p>
+            </div>
+            <div class="service-item" data-aos="fade-up" data-aos-delay="400">
+                <h3>Logistics & Gear</h3>
+                <p style="font-size: 0.9rem;">Eszközbérlés, catering és technikai háttér a legmagasabb szinten.</p>
+            </div>
         </div>
     </section>
 
-    <section id="kapcsolat" data-aos="fade-up">
-        <div class="glass-card">
-            <h2>Küldj üzenetet</h2>
-            <form class="contact-form">
-                <input type="text" placeholder="Neved" required>
-                <input type="email" placeholder="E-mail címed" required>
-                <textarea rows="5" placeholder="Az üzeneted tárgya..." required></textarea>
-                <button type="submit">Üzenet küldése</button>
-            </form>
+    <section id="referencia">
+        <div class="flex-container" style="flex-direction: row-reverse;" data-aos="fade-up">
+            <div class="text-side">
+                <span class="badge">MÉRFÖLDKŐ</span>
+                <h2>OneDay <br> <span class="silver-text">2024 / 2025</span></h2>
+                <p>A OneDay fesztiválsorozat az eddigi legnagyobb ugrásunk. 5000 résztvevő, nemzetközi line-up és egy olyan ezüstfényű látványvilág, ami új mércét állított fel a hazai rendezvénypiacon.</p>
+            </div>
+            <div class="silver-card" style="flex: 0.8; text-align: center;">
+                <h1 style="font-size: 5rem; font-family: Montserrat;">5K+</h1>
+                <p style="margin: 0 auto;">Látogató / Év</p>
+            </div>
         </div>
     </section>
 
-    <section id="reviews" data-aos="fade-up">
-        <h2>Ügyfeleink mondták</h2>
-        <div class="reviews">
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p><strong>Kovács Bence:</strong> "Profi hozzáállás, a fesztiválunk minden perce óramű pontossággal zajlott."</p>
+    <section id="kapcsolat">
+        <div class="flex-container">
+            <div class="text-side" data-aos="fade-right">
+                <h2>Induljunk <br> <span class="silver-text">el.</span></h2>
+                <p>Készen állsz a szintlépésre? Küldd el az elképzeléseid, és 24 órán belül felvesszük a kapcsolatot.</p>
             </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p><strong>Nagy Anita:</strong> "Az álom esküvőmet valósították meg, a dekoráció és a catering zseniális volt!"</p>
+            <div class="form-group" data-aos="fade-left">
+                <form onsubmit="event.preventDefault(); alert('Üzenet fogadva. Hamarosan visszahívunk!');">
+                    <input type="text" placeholder="NEVED" required>
+                    <input type="email" placeholder="E-MAIL CÍMED" required>
+                    <textarea rows="3" placeholder="MIRE KÉSZÜLSZ?"></textarea>
+                    <button type="submit">Küldés</button>
+                </form>
             </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p><strong>Tóth Márk:</strong> "Ritka az ilyen precíz csapat. A csapatépítőnk után minden kolléga elégedett volt."</p>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p><strong>Kiss László:</strong> "A sportrendezvényünk hangosítása és lebonyolítása világszínvonalú volt."</p>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p><strong>Molnár Dóra:</strong> "A jótékonysági bálunkon minden apróságra figyeltek. Csak ajánlani tudom őket!"</p>
+        </div>
+    </section>
+
+    <section style="min-height: auto; padding-bottom: 100px;">
+        <div style="width: 100%;">
+            <h2 style="font-size: 1.5rem; letter-spacing: 5px; text-align: center; margin-bottom: 60px;">VÉLEMÉNYEK</h2>
+            <div class="review-scroll">
+                <div class="rev-box">
+                    <p style="font-size: 1rem; color: #fff;">"A OneDay '25 minden várakozást felülmúlt. Ezüst minőség."</p>
+                    <small>– Kovács Péter, Fesztiválozó</small>
+                </div>
+                <div class="rev-box">
+                    <p style="font-size: 1rem; color: #fff;">"Profi lebonyolítás, a céges rendezvényünk zseniális lett."</p>
+                    <small>– Szabó Eszter, Marketing Manager</small>
+                </div>
+                <div class="rev-box">
+                    <p style="font-size: 1rem; color: #fff;">"Precíz technika, brutális hangzás. Csak ajánlani tudom."</p>
+                    <small>– Tóth Gergely, DJ</small>
+                </div>
+                <div class="rev-box">
+                    <p style="font-size: 1rem; color: #fff;">"A catering és a VIP kiszolgálás világszínvonalú volt."</p>
+                    <small>– Horváth Balázs, Ügyvezető</small>
+                </div>
+                <div class="rev-box">
+                    <p style="font-size: 1rem; color: #fff;">"Azt kaptuk, amit ígértek: egy felejthetetlen éjszakát."</p>
+                    <small>– Molnár Anna, Szervező partner</small>
+                </div>
             </div>
         </div>
     </section>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
+        AOS.init({ duration: 1000, once: true });
     </script>
 </body>
 </html>
